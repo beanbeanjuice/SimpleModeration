@@ -1,0 +1,160 @@
+prefix: '&8[&bbeanPunishments&8]'
+
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+# Configuration for the /push (player) command.
+
+# Spigot's maximum for this is around 10, but higher numbers are supported,
+# however, there may not be any noticeable difference.
+# Additionally, numbers higher than 1000 have been known to crash the server.
+push-maximum: 100
+
+# Players that cannot be pushed. Case-Sensitive.
+push-blacklisted-players:
+  - ExampleName
+  - krissy47
+  - beanbeanjuice
+
+# Messages
+push-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/push (player) (strength)&c.'
+push-not-allowed: '&cSorry, you are not allowed to push &a{player}&c.'
+push-above-maximum: '&cSorry, the maximum push strength is &a{max}&c.'
+successful-push: '&a{player} &3has been successfully pushed!'
+
+# Permissions
+# beanpunishments.push
+# ---------------------------------------------
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+# Configuration for the /bpreload command.
+
+# Messages
+successful-reload: '&aThe plugin has been successfully reloaded!'
+
+# Permissions
+# beanpunishments.reload
+# ---------------------------------------------
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+# Configuration for the /clearchat command.
+
+# Messages
+chat-cleared: '&3The chat has been successfully cleared!'
+
+# Permissions
+# beanpunishments.clearchat
+# ---------------------------------------------
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+# Configuration for the /freeze (player) command.
+
+# Players that cannot be frozen. Case-Sensitive.
+freeze-blacklisted-players:
+  - ExampleName
+  - krissy47
+  - beanbeanjuice
+
+# Messages
+freeze-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/freeze (player)&c.'
+freeze-unfreeze-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/unfreeze (player)&c.'
+freeze-not-allowed: '&cSorry, you are not allowed to freeze &a{player}&c.'
+freeze-frozen: '&a{player} &3has been successfully frozen.'
+freeze-unfrozen: '&a{player} &3has been successfully unfrozen.'
+freeze-already-frozen: '&a{player} &3is already frozen. Please use &a/unfreeze (player) &3to unfreeze them.'
+freeze-already-unfrozen: '&a{player} &3is already unfrozen. Please use &a/freeze (player) &3to freeze them.'
+freeze-freeze-all: '&a{player} &3has frozen &c&l&oALL &r&3players.'
+freeze-unfreeze-all: '&a{player} &3has unfrozen &c&l&oALL &r&3players.'
+
+# Permissions
+# beanpunishments.freeze
+# beanpunishments.freeze.all
+# beanpunishments.unfreeze
+# beanpunishments.unfreeze.all
+# ---------------------------------------------
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+# Configuration for the /warn (add/remove) (player) (reason) command.
+
+# Players that cannot be warned. Case-Sensitive.
+warn-blacklisted-players:
+  - ExampleName
+  - krissy47
+  - beanbeanjuice
+
+# Messages
+warn-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/warn (add/remove/list) (player) (warning)&c.'
+warn-add-incorrect-syntax: '&cSorry, the syntax is incorrect. To add a warn, please use &a/warn add (player) (warning)&c.'
+warn-remove-incorrect-syntax: '&cSorry, the syntax is incorrect. To remove a warn, please use &a/warn remove (player) (warnID)&c.'
+warn-successful: '&a{player} &3has been warned by &d{warner} &3for the reason &c&l"{warning}"&3.'
+warn-removed: '&3Successfully removed &c{warnID} &3from &a{player}&3.'
+warn-not-allowed: '&3Sorry, you are not allowed to warn &a{player}&3.'
+warn-no-id: '&3Sorry, &a{player} &3does not have any warns with the ID &d{warnID}&3.'
+warn-no-permission-list-self: '&cSorry, you do not have permission to view your own warns.'
+warn-no-permission-list-others: '&cSorry, you do not have permission to view the warns of other players.'
+warn-no-warns-self: '&3You currently do not have any warns.'
+warn-no-warns-others: '&a{player} &3currently does not have any warns.'
+warn-list-get-self: '&3Here is the list of your warns.'
+warn-list-get-others: '&3Here is the list of warns for &d{player}&3.'
+
+# Warn Format (DO NOT ADD/CHANGE VARIABLE NAMES. ONLY THE THINGS IN QUOTES.)
+warn-id: '&3Warn ID: &d{ID}'
+warn-warn-message: '&3Warn Message: &d{message}'
+warn-warn-punisher: '&3Warned By: &d{player}'
+warn-warn-timestamp: '&3Timestamp: &d{timestamp}'
+warn-separator: '&e============================'
+
+# Permissions
+# beanpunishments.warn.add
+# beanpunishments.warn.remove
+# beanpunishments.warn.list.others
+# beanpunishments.warn.list.self
+# ---------------------------------------------
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+# Configuration for the /mutechat command.
+
+# Messages
+mutechat-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/mutechat&c.'
+mutechat-broadcast-muted: '&cThe chat has been muted.'
+mutechat-broadcast-unmuted: '&aThe chat has been unmuted.'
+mutechat-player-muted: '&cYou cannot speak right now. The chat has been muted.'
+
+# Permissions
+# beanpunishments.mutechat
+# beanpunishments.mutechat.bypass
+# ---------------------------------------------
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+# Configuration for the /annoy (player) command.
+
+# Players that cannot be annoyed. Case-Sensitive.
+annoy-blacklisted-players:
+  - ExamplePlayer
+  - krissy47
+  - beanbeanjuice
+
+# Messages
+annoy-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/annoy (player)&c.'
+annoy-not-allowed: '&cSorry, you are not allowed to annoy &a{player}&c.'
+annoy-successful: '&aYou have successfully annoyed &d{player}&a.'
+
+#Permissions
+# beanpunishments.annoy
+# ---------------------------------------------
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+# Configuration for the /findworld (player) command.
+
+# Messages
+findworld: '&a{player}&3, is in &b{world}&3.'
+findworld-incorrect-syntax: '&cSorry, that syntax is incorrect. Please use &a/find (player)&c.'
+
+# Permissions
+# beanpunishments.findworld
+# ---------------------------------------------
+# |||||||||||||||||||||||||||||||||||||||||||||
+# ---------------------------------------------
+
+# Messages
+no-permission: '&cSorry, you do not have permission to execute this command.'
+player-not-found: '&cSorry, player &a{player} &cwas not found.'

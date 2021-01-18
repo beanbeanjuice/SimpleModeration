@@ -1,0 +1,49 @@
+name: BeanPunishments
+version: ${project.version}
+main: beanbeanjuice.beanpunishments.BeanPunishments
+api-version: 1.15
+load: STARTUP
+softdepend: [PlaceholderAPI]
+authors: [beanbeanjuice]
+description: ADD LATER
+
+commands:
+  push:
+    aliases: []
+    description: Launches a specified player with a specified amount of force.
+  bpreload:
+    aliases: [beanpunishmentsreload]
+    description: Reloads the config.yml file.
+  clearchat:
+    aliases: [cc]
+    description: Clears the chat.
+  freeze:
+    aliases: []
+    description: Freeze a player.
+  unfreeze:
+    aliases: []
+    description: Unfreeze a player.
+  warn:
+    aliases: []
+    description: Warns a player.
+  warn add:
+    aliases: []
+    description: Adds a warn to a player.
+  warn remove:
+    aliases: []
+    description: Removes a warn from a player.
+  warn list:
+    aliases: []
+    description: Shows a player's previous warns.
+  mutechat:
+    aliases: []
+    description: Mutes chat globally.
+  annoy:
+    aliases: []
+    description: Annoys a player with ghast sounds.
+  punish:
+    aliases: []
+    description: Brings up the punish GUI.
+  find:
+    aliases: [findworld]
+    description: Find the current world of a player.
