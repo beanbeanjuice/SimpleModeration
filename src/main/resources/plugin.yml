@@ -1,11 +1,11 @@
 name: BeanPunishments
 version: ${project.version}
 main: beanbeanjuice.beanpunishments.BeanPunishments
-api-version: 1.15
+api-version: 1.16
 load: STARTUP
 softdepend: [PlaceholderAPI]
 authors: [beanbeanjuice]
-description: ADD LATER
+description: Punish/Annoy the hell out of people
 
 commands:
   push:

