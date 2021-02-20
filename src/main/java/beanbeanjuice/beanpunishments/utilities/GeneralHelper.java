@@ -4,28 +4,34 @@ import beanbeanjuice.beanpunishments.BeanPunishments;
 
 public class GeneralHelper {
 
-    private static String prefix;
-    private static String nopermission;
+    private final String prefix;
+    private final String noPermission;
+    private final BeanPunishments plugin;
 
     public GeneralHelper(BeanPunishments plugin) {
+        this.plugin = plugin;
         prefix = translateColors(plugin.getConfig().getString("prefix")) + " ";
-        nopermission = translateColors(plugin.getConfig().getString("no-permission"));
+        noPermission = translateColors(plugin.getConfig().getString("no-permission"));
     }
 
-    public static String translateColors(String string) {
+    public String translateColors(String string) {
         return string.replaceAll("&", "§");
     }
 
-    public static String getConsolePrefix() {
+    public String getConsolePrefix() {
         return "[beanPunishments] ";
     }
 
-    public static String getPrefix() {
+    public String getPrefix() {
         return prefix;
     }
 
-    public static String getNoPermission() {
-        return nopermission;
+    public String getNoPermission() {
+        return noPermission;
+    }
+
+    public String getConfigString(String identifier) {
+        return translateColors(plugin.getConfig().getString(identifier));
     }
 
 }
