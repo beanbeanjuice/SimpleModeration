@@ -41,8 +41,11 @@ public class Punish implements CommandInterface {
     }
 
     @Override
-    public ArrayList<String> getAliases() {
-        return new ArrayList<>();
+    public ArrayList<String> getPermissions() {
+        ArrayList<String> permissionArrayList = new ArrayList<>();
+        permissionArrayList.add("beanpunishments.punish.use");
+        permissionArrayList.add("beanpunishments.punish.exempt");
+        return permissionArrayList;
     }
 
     @Override

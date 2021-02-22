@@ -16,7 +16,7 @@ public interface CommandInterface extends CommandExecutor {
 
     String getName();
 
-    ArrayList<String> getAliases();
+    ArrayList<String> getPermissions();
 
     CommandUsage getCommandUsage();
 

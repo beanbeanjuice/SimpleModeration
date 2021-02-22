@@ -31,6 +31,7 @@ public final class BeanPunishments extends JavaPlugin {
 //        new MuteChat(this);
 //        new FindWorld(this);
         commandHandler.addCommand(new Punish());
+        commandHandler.addCommand(new Annoy());
         //getServer().getPluginManager().registerEvents(new ChatManager(this), this);
 
         // Initialize the commands after you have added all the commands.

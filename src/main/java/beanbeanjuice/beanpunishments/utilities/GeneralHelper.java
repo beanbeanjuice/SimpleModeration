@@ -1,6 +1,9 @@
 package beanbeanjuice.beanpunishments.utilities;
 
 import beanbeanjuice.beanpunishments.BeanPunishments;
+import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
 
 public class GeneralHelper {
 
@@ -32,6 +35,19 @@ public class GeneralHelper {
 
     public String getConfigString(String identifier) {
         return translateColors(plugin.getConfig().getString(identifier));
+    }
+
+    public ArrayList<String> getConfigStringList(String identifier) {
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        for (String string : plugin.getConfig().getStringList(identifier)) {
+            arrayList.add(translateColors(string));
+        }
+        return arrayList;
+    }
+
+    public boolean hasPermission(Player player, String permission) {
+        return player.hasPermission(permission);
     }
 
 }

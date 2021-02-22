@@ -21,9 +21,6 @@ public class CommandUsage {
         return usages;
     }
 
-    // TODO: Not enough arguments
-    // TODO: Check if required
-
     public ARGUMENT_AMOUNT checkTotal(String[] arguments) {
         int totalRequired = 0;
 
