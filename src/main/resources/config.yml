@@ -21,10 +21,13 @@ push-not-allowed: '&cSorry, you are not allowed to push &a{player}&c.'
 push-above-maximum: '&cSorry, the maximum push strength is &a{max}&c.'
 successful-push: '&a{player} &3has been successfully pushed!'
 
-incorrect-syntax-text: '&cUnknown argument &d%argument%&c. A text is required.'
-incorrect-syntax-number: '&cUnknown argument &d%argument%&c. A number is required.'
-incorrect-syntax-player: '&cUnknown argument &d%argument%&c. A player name is required.'
-incorrect-syntax-world: '&cUnknown argument &d%argument%&c. A world name is required.'
+incorrect-syntax-text: '&cUnknown argument &d%argument%&c. A text is required. Description: "&d%help%&c".'
+incorrect-syntax-number: '&cUnknown argument &d%argument%&c. A number is required. Description: "&d%help%&c".'
+incorrect-syntax-player: '&cUnknown argument &d%argument%&c. A player name is required. Description: "&d%help%&c".'
+incorrect-syntax-world: '&cUnknown argument &d%argument%&c. A world name is required. Description: "&d%help%&c".'
+incorrect-syntax-other: '&cUnknown argument &d%argument%&c. Description: "&d%help%&c".'
+too-many-arguments: '&cSorry, you have too many arguments.'
+not-enough-arguments: '&cSorry, you do not have enough arguments.'
 
 # Permissions
 # beanpunishments.push

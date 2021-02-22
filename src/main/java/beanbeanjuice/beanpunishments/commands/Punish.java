@@ -25,6 +25,12 @@ public class Punish implements CommandInterface {
         }
 
         Player player = (Player) sender;
+
+        if (args.length == 1) {
+            player.sendMessage(args[0]);
+            return true;
+        }
+
         player.sendMessage(args[0] + " " + args[1]);
         return true;
     }
@@ -42,9 +48,8 @@ public class Punish implements CommandInterface {
     @Override
     public CommandUsage getCommandUsage() {
         CommandUsage usage = new CommandUsage();
-        // TODO: Need to check if required
         usage.addUsage("player", CommandUsage.USAGE_TYPE.PLAYER, true);
-        usage.addUsage("number", CommandUsage.USAGE_TYPE.NUMBER, true);
+        usage.addUsage("number", CommandUsage.USAGE_TYPE.NUMBER, false);
         return usage;
     }
 

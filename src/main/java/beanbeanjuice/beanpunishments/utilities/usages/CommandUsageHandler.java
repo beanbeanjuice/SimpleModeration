@@ -29,13 +29,33 @@ public class CommandUsageHandler {
     public boolean checkArguments(CommandInterface command, Player player, String[] arguments) {
         for (CommandInterface commandOriginal : commands) {
             if (command.equals(commandOriginal)) {
+
+                CommandUsage.ARGUMENT_AMOUNT argumentAmount = commandOriginal.getCommandUsage().checkTotal(arguments);
+
+                switch (argumentAmount) {
+                    case CORRECT_AMOUNT: {
+                        break;
+                    }
+
+                    case NOT_ENOUGH:
+
+                    case TOO_MANY: {
+                        player.sendMessage(BeanPunishments.getHelper().getPrefix() +
+                                argumentAmount.getMessage());
+                        return false;
+                    }
+                }
+
                 int length = arguments.length;
                 for (int i = 0; i < length; i++) {
-                    boolean allowed = commandOriginal.getCommandUsage().checkUsage(arguments[0], i);
+                    boolean allowed = commandOriginal.getCommandUsage().checkUsage(arguments[i], i);
                     if (!allowed) {
-                        player.sendMessage(BeanPunishments.getHelper().getPrefix() +
+                        String message = BeanPunishments.getHelper().getPrefix() +
                                 commandOriginal.getCommandUsage().getUsages().get(i)
-                                        .getUsageType().getMessage().replaceAll("%argument%", arguments[i]));
+                                        .getUsageType().getMessage().replaceAll("%argument%", arguments[i]);
+
+                        message = message.replaceAll("%help%", command.getCommandUsage().getUsages().get(i).getHelp());
+                        player.sendMessage(message);
                         return false;
                     }
                 }
