@@ -20,5 +20,5 @@ public interface CommandInterface extends CommandExecutor {
 
     CommandUsage getCommandUsage();
 
-    boolean checkArgs(CommandInterface command, Player player, String[] arguments);
+    boolean checkArgs(CommandInterface command, CommandSender sender, String[] arguments);
 }

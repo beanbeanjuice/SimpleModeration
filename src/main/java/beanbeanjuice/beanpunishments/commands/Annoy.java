@@ -2,6 +2,7 @@ package beanbeanjuice.beanpunishments.commands;
 
 import beanbeanjuice.beanpunishments.BeanPunishments;
 import beanbeanjuice.beanpunishments.utilities.CommandInterface;
+import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
 import beanbeanjuice.beanpunishments.utilities.usages.CommandUsage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -18,12 +19,15 @@ public class Annoy implements CommandInterface {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         // Checks to see if something is run in the console
 
-        checkArgs(this, (Player) sender, args);
+        if (!checkArgs(this, sender, args)) {
+            return false;
+        }
 
         Player punishee = Bukkit.getPlayer(args[0]);
+        GeneralHelper helper = BeanPunishments.getHelper();
 
         if (!(sender instanceof Player)) {
-            if (BeanPunishments.getHelper().getConfigStringList("annoy-blacklisted-players").contains(punishee.getName())) {
+            if (helper.getConfigStringList("annoy-blacklisted-players").contains(punishee.getName())) {
                 sender.sendMessage("[beanPunishments] Sorry, you cannot annoy that player.");
                 return false;
             }
@@ -35,20 +39,20 @@ public class Annoy implements CommandInterface {
         // If not a console user, runs as a player
         Player punisher = (Player) sender;
 
-        if (punisher.hasPermission(getPermissions().get(0))) {
-            if (BeanPunishments.getHelper().getConfigStringList("annoy-blacklisted-players").contains(punishee.getName())) {
-                punisher.sendMessage(BeanPunishments.getHelper().getPrefix() +
-                        BeanPunishments.getHelper().getConfigString("annoy-not-allowed").replace("%player%", punishee.getName()));
+        if (punisher.hasPermission(getPermissions().get(0)) || punisher.isOp()) {
+            if (helper.getConfigStringList("annoy-blacklisted-players").contains(punishee.getName())) {
+                punisher.sendMessage(helper.getPrefix() +
+                        helper.getConfigString("annoy-not-allowed").replace("%player%", punishee.getName()));
                 return false;
             } else {
                 annoy(punishee);
-                punisher.sendMessage(BeanPunishments.getHelper().getPrefix() +
-                        BeanPunishments.getHelper().getConfigString("annoy-successful").replaceAll("%player%", punishee.getName()));
+                punisher.sendMessage(helper.getPrefix() +
+                        helper.getConfigString("annoy-successful").replaceAll("%player%", punishee.getName()));
                 return true;
             }
         } else {
-            punisher.sendMessage(BeanPunishments.getHelper().getPrefix() +
-                    BeanPunishments.getHelper().getConfigString("no-permission"));
+            punisher.sendMessage(helper.getPrefix() +
+                    helper.getConfigString("no-permission"));
             return false;
         }
     }
@@ -73,8 +77,8 @@ public class Annoy implements CommandInterface {
     }
 
     @Override
-    public boolean checkArgs(CommandInterface command, Player player, String[] arguments) {
-        return BeanPunishments.getCommandHandler().checkArguments(command, player, arguments);
+    public boolean checkArgs(CommandInterface command, CommandSender sender, String[] arguments) {
+        return BeanPunishments.getCommandHandler().checkArguments(command, sender, arguments);
     }
 
     // Method for playing sounds to annoy player

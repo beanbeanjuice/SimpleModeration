@@ -20,7 +20,7 @@ public class Punish implements CommandInterface {
             return false;
         }
 
-        if (!checkArgs(this, (Player) sender, args)) {
+        if (!checkArgs(this, sender, args)) {
             return false;
         }
 
@@ -57,7 +57,7 @@ public class Punish implements CommandInterface {
     }
 
     @Override
-    public boolean checkArgs(CommandInterface command, Player player, String[] arguments) {
-        return BeanPunishments.getCommandHandler().checkArguments(command, player, arguments);
+    public boolean checkArgs(CommandInterface command, CommandSender sender, String[] arguments) {
+        return BeanPunishments.getCommandHandler().checkArguments(command, sender, arguments);
     }
 }

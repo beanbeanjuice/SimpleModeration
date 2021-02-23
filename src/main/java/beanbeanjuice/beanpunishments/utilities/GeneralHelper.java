@@ -21,6 +21,10 @@ public class GeneralHelper {
         return string.replaceAll("&", "§");
     }
 
+    public BeanPunishments getPlugin() {
+        return plugin;
+    }
+
     public String getConsolePrefix() {
         return "[beanPunishments] ";
     }
@@ -35,6 +39,10 @@ public class GeneralHelper {
 
     public String getConfigString(String identifier) {
         return translateColors(plugin.getConfig().getString(identifier));
+    }
+
+    public int getConfigInt(String identifier) {
+        return plugin.getConfig().getInt(identifier);
     }
 
     public ArrayList<String> getConfigStringList(String identifier) {

@@ -2,7 +2,7 @@ package beanbeanjuice.beanpunishments.utilities.usages;
 
 import beanbeanjuice.beanpunishments.BeanPunishments;
 import beanbeanjuice.beanpunishments.utilities.CommandInterface;
-import org.bukkit.entity.Player;
+import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class CommandUsageHandler {
         }
     }
 
-    public boolean checkArguments(CommandInterface command, Player player, String[] arguments) {
+    public boolean checkArguments(CommandInterface command, CommandSender sender, String[] arguments) {
         for (CommandInterface commandOriginal : commands) {
             if (command.equals(commandOriginal)) {
 
@@ -40,7 +40,7 @@ public class CommandUsageHandler {
                     case NOT_ENOUGH:
 
                     case TOO_MANY: {
-                        player.sendMessage(BeanPunishments.getHelper().getPrefix() +
+                        sender.sendMessage(BeanPunishments.getHelper().getPrefix() +
                                 argumentAmount.getMessage());
                         return false;
                     }
@@ -55,7 +55,7 @@ public class CommandUsageHandler {
                                         .getUsageType().getMessage().replaceAll("%argument%", arguments[i]);
 
                         message = message.replaceAll("%help%", command.getCommandUsage().getUsages().get(i).getHelp());
-                        player.sendMessage(message);
+                        sender.sendMessage(message);
                         return false;
                     }
                 }

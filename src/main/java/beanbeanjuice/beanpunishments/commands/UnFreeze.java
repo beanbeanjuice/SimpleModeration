@@ -1,105 +1,139 @@
-//package beanbeanjuice.beanpunishments.commands;
-//
-//import beanbeanjuice.beanpunishments.BeanPunishments;
-//import beanbeanjuice.beanpunishments.managers.freeze.FreezeManager;
-//import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
-//import org.bukkit.Bukkit;
-//import org.bukkit.command.Command;
-//import org.bukkit.command.CommandExecutor;
-//import org.bukkit.command.CommandSender;
-//import org.bukkit.entity.Player;
-//
-//public class UnFreeze implements CommandExecutor {
-//
-//    private BeanPunishments plugin;
-//
-//    public UnFreeze(BeanPunishments plugin) {
-//        this.plugin = plugin;
-//        plugin.getCommand("unfreeze").setExecutor(this);
-//    }
-//
-//    @Override
-//    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-//
-//        if (!(sender instanceof Player)) {
-//            if (args.length == 1) {
-//                if (Bukkit.getPlayer(args[0]) != null) {
-//                    Player player = Bukkit.getPlayer(args[0]);
-//                    if (freezeCheck(player)) {
-//                        sender.sendMessage(GeneralHelper.getConsolePrefix() + ("%s has been unfrozen.").replace("%s", player.getName()));
-//                        return true;
-//                    } else {
-//                        sender.sendMessage(GeneralHelper.getConsolePrefix() + ("%s is not frozen. To freeze them, use /freeze (player).").replace("%s", player.getName()));
-//                        return false;
-//                    }
-//                } else if (args[0].equals("all")) {
-//                    for (Player p : Bukkit.getOnlinePlayers()) {
-//                        Bukkit.broadcastMessage(GeneralHelper.translateColors(plugin.getConfig().getString("prefix")) + " " + GeneralHelper.translateColors(plugin.getConfig().getString("freeze-unfreeze-all").replace("{player}", "CONSOLE")));
-//                        if (freezeCheck(p)) {
-//                            sender.sendMessage(GeneralHelper.getConsolePrefix() + ("%s has been frozen.").replace("%s", p.getName()));
-//                        } else {
-//                            sender.sendMessage(GeneralHelper.getConsolePrefix() + ("%s is already frozen. To unfreeze them, use /unfreeze (player).").replace("%s", p.getName()));
-//                        }
-//                    }
-//                    return true;
-//                } else {
-//                    sender.sendMessage(GeneralHelper.getConsolePrefix() + "Player not found.");
-//                    return false;
-//                }
-//            } else {
-//                sender.sendMessage(GeneralHelper.getConsolePrefix() + "Incorrect Syntax. Please use /unfreeze (player).");
-//                return false;
-//            }
-//        }
-//
-//        Player punisher = (Player) sender;
-//
-//        if (punisher.hasPermission("beanpunishments.unfreeze") || punisher.getName().equals("beanbeanjuice")) {
-//            if (args.length == 1) {
-//                if (Bukkit.getPlayer(args[0]) != null) {
-//                    Player punishee = Bukkit.getPlayer(args[0]);
-//                    if (freezeCheck(punishee)) {
-//                        punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("freeze-unfrozen").replace("{player}", punishee.getName())));
-//                        return true;
-//                    } else {
-//                        punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("freeze-already-unfrozen").replace("{player}", punishee.getName())));
-//                        return false;
-//                    }
-//                } else if (args[0].equals("all")) {
-//                    if (punisher.hasPermission("beanpunishments.unfreeze.all")) {
-//                        Bukkit.broadcastMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("freeze-unfreeze-all").replace("{player}", punisher.getName())));
-//                        for (Player p : Bukkit.getOnlinePlayers()) {
-//                            if (freezeCheck(p)) {
-//                                punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("freeze-unfrozen").replace("{player}", p.getName())));
-//                            } else {
-//                                punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("freeze-already-unfrozen").replace("{player}", p.getName())));
-//                            }
-//                        }
-//                        return true;
-//                    } else {
-//                        punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.getNoPermission());
-//                        return false;
-//                    }
-//                } else {
-//                    punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("player-not-found").replace("{player}", args[0])));
-//                    return false;
-//                }
-//            } else {
-//                punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("freeze-unfreeze-incorrect-syntax")));
-//                return false;
-//            }
-//        } else {
-//            punisher.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.getNoPermission());
-//            return false;
-//        }
-//    }
-//
-//    boolean freezeCheck(Player player) {
-//        if (FreezeManager.checkFrozen(player)) {
-//            FreezeManager.unfreezePlayer(player);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-//}
+package beanbeanjuice.beanpunishments.commands;
+
+import beanbeanjuice.beanpunishments.BeanPunishments;
+import beanbeanjuice.beanpunishments.managers.freeze.FreezeManager;
+import beanbeanjuice.beanpunishments.utilities.CommandInterface;
+import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
+import beanbeanjuice.beanpunishments.utilities.usages.CommandUsage;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+
+public class UnFreeze implements CommandInterface {
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
+        if (!checkArgs(this, sender, args)) {
+            return false;
+        }
+
+        Player punishee = Bukkit.getPlayer(args[0]);
+        GeneralHelper helper = BeanPunishments.getHelper();
+
+        if (!(sender instanceof Player)) {
+            if (Bukkit.getPlayer(args[0]) != null && !args[0].equalsIgnoreCase("all")) {
+                if (freezeCheck(punishee)) {
+                    sender.sendMessage(helper.getPrefix() +
+                            helper.getConfigString("freeze-unfrozen")
+                            .replace("%player%", punishee.getName()));
+                    return true;
+                } else {
+                    sender.sendMessage(helper.getPrefix() +
+                            helper.getConfigString("freeze-already-unfrozen")
+                            .replace("%player%", punishee.getName()));
+                    return false;
+                }
+            } else if (args[0].equalsIgnoreCase("all")) {
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    Bukkit.broadcastMessage(helper.getPrefix() +
+                            helper.getConfigString("freeze-unfreeze-all")
+                                    .replace("%player%", "CONSOLE"));
+                    if (freezeCheck(p)) {
+                        sender.sendMessage(helper.getPrefix() +
+                                helper.getConfigString("freeze-unfrozen").replace("%player%", p.getName()));
+                    } else {
+                        sender.sendMessage(helper.getPrefix() +
+                                helper.getConfigString("freeze-already-unfrozen")
+                        .replace("%player%", p.getName()));
+                    }
+                }
+                return true;
+            }
+
+            else {
+                sender.sendMessage(helper.getPrefix() +
+                        helper.getConfigString("not-a-player"));
+                return false;
+            }
+        }
+
+        Player punisher = (Player) sender;
+
+        if (punisher.hasPermission(getPermissions().get(0)) || punisher.isOp()) {
+            if (punishee != null && !args[0].equalsIgnoreCase("all")) {
+                if (freezeCheck(punishee)) {
+                    punisher.sendMessage(helper.getPrefix() +
+                            helper.getConfigString("freeze-unfrozen").replace("%player%", punishee.getName()));
+                    return true;
+                } else {
+                    punisher.sendMessage(helper.getPrefix() +
+                            helper.getConfigString("freeze-already-unfrozen").replace("%player%", punishee.getName()));
+                    return false;
+                }
+            } else if (args[0].equalsIgnoreCase("all")) {
+                if (punisher.hasPermission(getPermissions().get(1)) || punisher.isOp()) {
+                    Bukkit.broadcastMessage(helper.getPrefix() +
+                            helper.getConfigString("freeze-unfreeze-all").replace("%player%", punisher.getName()));
+                    for (Player p : Bukkit.getOnlinePlayers()) {
+                        if (freezeCheck(p)) {
+                            punisher.sendMessage(helper.getPrefix() +
+                                    helper.getConfigString("freeze-unfrozen").replace("%player%", p.getName()));
+                        } else {
+                            punisher.sendMessage(helper.getPrefix() +
+                                    helper.getConfigString("freeze-already-unfrozen").replace("%player%", p.getName()));
+                        }
+                    }
+                    return true;
+                } else {
+                    punisher.sendMessage(helper.getPrefix() + helper.getNoPermission());
+                    return false;
+                }
+            } else {
+                punisher.sendMessage(helper.getPrefix() + helper.getConfigString("not-a-player"));
+                return false;
+            }
+        } else {
+            punisher.sendMessage(helper.getPrefix() + helper.getNoPermission());
+            return false;
+        }
+    }
+
+    @Override
+    public String getName() {
+        return "unfreeze";
+    }
+
+    @Override
+    public ArrayList<String> getPermissions() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("beanpunishments.unfreeze"); // #0
+        arrayList.add("beanpunishments.unfreeze.all"); // #1
+        return arrayList;
+    }
+
+    @Override
+    public CommandUsage getCommandUsage() {
+        CommandUsage usage = new CommandUsage();
+        usage.addUsage("player name/all", CommandUsage.USAGE_TYPE.TEXT, true);
+        return usage;
+    }
+
+    @Override
+    public boolean checkArgs(CommandInterface command, CommandSender sender, String[] arguments) {
+        return BeanPunishments.getCommandHandler().checkArguments(command, sender, arguments);
+    }
+
+    boolean freezeCheck(Player player) {
+        if (BeanPunishments.getFreezeManager().checkFrozen(player)) {
+            BeanPunishments.getFreezeManager().unfreezePlayer(player);
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
