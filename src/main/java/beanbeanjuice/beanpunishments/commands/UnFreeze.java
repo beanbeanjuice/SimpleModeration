@@ -56,8 +56,7 @@ public class UnFreeze implements CommandInterface {
             }
 
             else {
-                sender.sendMessage(helper.getPrefix() +
-                        helper.getConfigString("not-a-player"));
+                sender.sendMessage(helper.getPrefix() + helper.playerNotFound(args[0]));
                 return false;
             }
         }
@@ -94,7 +93,7 @@ public class UnFreeze implements CommandInterface {
                     return false;
                 }
             } else {
-                punisher.sendMessage(helper.getPrefix() + helper.getConfigString("not-a-player"));
+                punisher.sendMessage(helper.getPrefix() + helper.playerNotFound(args[0]));
                 return false;
             }
         } else {

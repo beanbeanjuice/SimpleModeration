@@ -37,6 +37,10 @@ public class GeneralHelper {
         return noPermission;
     }
 
+    public String playerNotFound(String player) {
+        return getConfigString("player-not-found").replace("%player%", player);
+    }
+
     public String getConfigString(String identifier) {
         return translateColors(plugin.getConfig().getString(identifier));
     }
