@@ -25,10 +25,6 @@ public class GeneralHelper {
         return plugin;
     }
 
-    public String getConsolePrefix() {
-        return "[beanPunishments] ";
-    }
-
     public String getPrefix() {
         return prefix;
     }
@@ -47,6 +43,10 @@ public class GeneralHelper {
 
     public int getConfigInt(String identifier) {
         return plugin.getConfig().getInt(identifier);
+    }
+
+    public boolean getConfigBoolean(String identifier) {
+        return plugin.getConfig().getBoolean(identifier);
     }
 
     public ArrayList<String> getConfigStringList(String identifier) {

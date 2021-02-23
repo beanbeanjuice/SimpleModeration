@@ -32,16 +32,15 @@ public class FrozenPlayer implements Runnable {
         BeanPunishments.getFreezeManager().frozenEffects(player, location);
 
         if (Bukkit.getPlayer(player.getName()) == null) {
+            GeneralHelper helper = BeanPunishments.getHelper();
             BeanPunishments.getFreezeManager().unfreezePlayer(player);
 
-            // TODO: Eventually get discord from config
-            Bukkit.getBanList(BanList.Type.NAME).addBan(player.getName(),
-                    BeanPunishments.getHelper().translateColors("&cLogged out while frozen. " +
-                            "Appeal on discord &bhttps://discord.gg/Qy6NU5x"), null, null);
-            Bukkit.broadcastMessage(BeanPunishments.getHelper().getPrefix() +
-                    BeanPunishments.getHelper().translateColors("&a" +
-                            player.getName() +
-                            " &c&lhas left the game while frozen and has been permanently banned."));
+            if (helper.getConfigBoolean("freeze-ban-on-leave")) {
+                Bukkit.getBanList(BanList.Type.NAME).addBan(player.getName(), helper.getConfigString("freeze-ban-message")
+                        .replace("%discord%", helper.getConfigString("discord-link")), null, null);
+                Bukkit.broadcastMessage(helper.getPrefix() + helper.getConfigString("freeze-ban-broadcast-message")
+                        .replace("%player%", player.getName()));
+            }
         }
     }
 }

@@ -43,8 +43,8 @@ public class FreezeManager {
         player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 40, 50));
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 40, 50));
         player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 40, 50));
-        player.sendTitle(BeanPunishments.getHelper().translateColors("&bYou are frozen"),
-                BeanPunishments.getHelper().translateColors("&cDo not log out or you will be banned."),0, 40, 0);
+        player.sendTitle(BeanPunishments.getHelper().getConfigString("freeze-title-message"),
+                BeanPunishments.getHelper().getConfigString("freeze-secondary-message"),0, 40, 0);
         player.teleport(new Location(location.getWorld(), location.getX(), location.getY(), location.getZ()));
     }
 }
