@@ -68,8 +68,7 @@ public class Freeze implements CommandInterface {
                 }
                 return true;
             } else {
-                sender.sendMessage(helper.getPrefix() + helper.
-                        getConfigString("player-not-found").replace("%player%", args[0]));
+                sender.sendMessage(helper.getPrefix() + helper.playerNotFound(args[0]));
                 return false;
             }
         }
@@ -121,8 +120,7 @@ public class Freeze implements CommandInterface {
                     return false;
                 }
             } else {
-                punisher.sendMessage(helper.getPrefix() + helper.getConfigString("player-not-found")
-                        .replace("%player%", args[0]));
+                punisher.sendMessage(helper.getPrefix() + helper.playerNotFound(args[0]));
                 return false;
             }
         } else {

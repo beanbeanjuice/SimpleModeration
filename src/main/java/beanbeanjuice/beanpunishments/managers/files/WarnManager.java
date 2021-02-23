@@ -31,7 +31,7 @@ public class WarnManager {
                 f.createSection("warn-history");
                 f.save(file);
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }
     }
@@ -68,7 +68,7 @@ public class WarnManager {
         try {
             config.save(new File(filepath + "/" + UUID.toString() + ".yml"));
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return string.toString();
     }
@@ -85,7 +85,7 @@ public class WarnManager {
                 try {
                     config.save(new File(filepath + "/" + UUID.toString() + ".yml"));
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                 }
                 return true;
             } else {

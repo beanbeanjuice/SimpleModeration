@@ -54,7 +54,7 @@ public class Warn implements CommandInterface {
                             }
 
                         } else {
-                            sender.sendMessage(helper.getPrefix() + helper.getConfigString("not-a-player").replace("%player%", args[1]));
+                            sender.sendMessage(helper.getPrefix() + helper.playerNotFound(args[1]));
                             return false;
                         }
 
@@ -80,8 +80,7 @@ public class Warn implements CommandInterface {
                                 return false;
                             }
                         } else {
-                            sender.sendMessage(helper.getPrefix() + helper.getConfigString("not-a-player")
-                                    .replace("%player%", args[1]));
+                            sender.sendMessage(helper.getPrefix() + helper.playerNotFound(args[1]));
                             return false;
                         }
                     } else {
@@ -98,7 +97,7 @@ public class Warn implements CommandInterface {
                             warnList(sender, UUID);
                             return true;
                         } else {
-                            sender.sendMessage(helper.getPrefix() + helper.getConfigString("not-a-player").replace("%player%", args[1]));
+                            sender.sendMessage(helper.getPrefix() + helper.playerNotFound(args[1]));
                             return false;
                         }
                     } else {
@@ -139,8 +138,7 @@ public class Warn implements CommandInterface {
                             }
 
                         } else {
-                            punisher.sendMessage(helper.getPrefix() + helper.getConfigString("not-a-player")
-                                    .replace("%player%", args[1]));
+                            punisher.sendMessage(helper.getPrefix() + helper.playerNotFound(args[1]));
                             return false;
                         }
 
@@ -171,8 +169,7 @@ public class Warn implements CommandInterface {
                                 return false;
                             }
                         } else {
-                            punisher.sendMessage(helper.getPrefix() + helper.getConfigString("not-a-player")
-                                    .replace("%player%", args[1]));
+                            punisher.sendMessage(helper.getPrefix() + helper.playerNotFound(args[1]));
                             return false;
                         }
                     } else {
@@ -216,7 +213,7 @@ public class Warn implements CommandInterface {
                                 return false;
                             }
                         } else {
-                            punisher.sendMessage(helper.getPrefix() + helper.getConfigString("not-a-player").replace("%player%", args[1]));
+                            punisher.sendMessage(helper.getPrefix() + helper.playerNotFound(args[1]));
                             return false;
                         }
                     } else {

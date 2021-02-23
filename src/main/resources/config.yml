@@ -1,5 +1,5 @@
 prefix: '&8[&bbeanPunishments&8]'
-
+discord-link: 'https://discord.gg/example'
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
 # Configuration for the /push (player) command.
@@ -12,21 +12,12 @@ push-maximum: 100
 # Players that cannot be pushed. Case-Sensitive.
 push-blacklisted-players:
   - ExampleName
-  - krissy47
 
 # Messages
 push-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/push (player) (strength)&c.'
 push-not-allowed: '&cSorry, you are not allowed to push &a%player%&c.'
 push-above-maximum: '&cSorry, the maximum push strength is &a%max%&c.'
 successful-push: '&a%player% &3has been successfully pushed!'
-
-incorrect-syntax-text: '&cUnknown argument &d%argument%&c. A text is required. Description: "&d%help%&c".'
-incorrect-syntax-number: '&cUnknown argument &d%argument%&c. A number is required. Description: "&d%help%&c".'
-incorrect-syntax-player: '&cUnknown argument &d%argument%&c. A player name is required. Description: "&d%help%&c".'
-incorrect-syntax-world: '&cUnknown argument &d%argument%&c. A world name is required. Description: "&d%help%&c".'
-incorrect-syntax-other: '&cUnknown argument &d%argument%&c. Description: "&d%help%&c".'
-too-many-arguments: '&cSorry, you have too many arguments.'
-not-enough-arguments: '&cSorry, you do not have enough arguments.'
 
 # Permissions
 # beanpunishments.push
@@ -58,7 +49,13 @@ chat-cleared: '&3The chat has been successfully cleared!'
 # Players that cannot be frozen. Case-Sensitive.
 freeze-blacklisted-players:
   - ExampleName
-  - krissy47
+
+# Bans the frozen player when they leave the game.
+freeze-ban-on-leave: true
+
+# Title Messages
+freeze-title-message: '&bYou are frozen.'
+freeze-secondary-message: '&cDo not log out or you will be banned.'
 
 # Messages
 freeze-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/freeze (player)&c.'
@@ -70,6 +67,8 @@ freeze-already-frozen: '&a%player% &3is already frozen. Please use &a/unfreeze (
 freeze-already-unfrozen: '&a%player% &3is already unfrozen. Please use &a/freeze (player) &3to freeze them.'
 freeze-freeze-all: '&a%player% &3has frozen &c&l&oALL &r&3players.'
 freeze-unfreeze-all: '&a%player% &3has unfrozen &c&l&oALL &r&3players.'
+freeze-ban-message: '&cLogged out while frozen. Appeal on discord at &b%discord%&c.'
+freeze-ban-broadcast-message: '&a%player% has left the game while frozen and has been permanently banned.'
 
 # Permissions
 # beanpunishments.freeze
@@ -84,7 +83,6 @@ freeze-unfreeze-all: '&a%player% &3has unfrozen &c&l&oALL &r&3players.'
 # Players that cannot be warned. Case-Sensitive.
 warn-blacklisted-players:
   - ExampleName
-  - krissy47
 
 # Messages
 warn-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/warn (add/remove/list) (player) (warning)&c.'
@@ -136,7 +134,6 @@ mutechat-player-muted: '&cYou cannot speak right now. The chat has been muted.'
 # Players that cannot be annoyed. Case-Sensitive.
 annoy-blacklisted-players:
   - ExamplePlayer
-  - krissy47
 
 # Messages
 annoy-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/annoy (player)&c.'
@@ -160,6 +157,16 @@ findworld-incorrect-syntax: '&cSorry, that syntax is incorrect. Please use &a/fi
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
 
-# Messages
+# Various Messages
 no-permission: '&cSorry, you do not have permission to execute this command.'
 player-not-found: '&cSorry, player &a%player% &cwas not found.'
+incorrect-syntax-text: '&cUnknown argument &d%argument%&c. A text is required. Description: "&d%help%&c".'
+incorrect-syntax-number: '&cUnknown argument &d%argument%&c. A number is required. Description: "&d%help%&c".'
+incorrect-syntax-player: '&cUnknown argument &d%argument%&c. An online player name is required. Description: "&d%help%&c".'
+incorrect-syntax-world: '&cUnknown argument &d%argument%&c. A world name is required. Description: "&d%help%&c".'
+incorrect-syntax-other: '&cUnknown argument &d%argument%&c. Description: "&d%help%&c".'
+too-many-arguments: '&cSorry, you have too many arguments.'
+not-enough-arguments: '&cSorry, you do not have enough arguments.'
+
+# IMPORTANT - DO NOT TOUCH
+config-version: 1

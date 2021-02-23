@@ -25,10 +25,6 @@ public class GeneralHelper {
         return plugin;
     }
 
-    public String getConsolePrefix() {
-        return "[beanPunishments] ";
-    }
-
     public String getPrefix() {
         return prefix;
     }
@@ -37,12 +33,20 @@ public class GeneralHelper {
         return noPermission;
     }
 
+    public String playerNotFound(String player) {
+        return getConfigString("player-not-found").replace("%player%", player);
+    }
+
     public String getConfigString(String identifier) {
         return translateColors(plugin.getConfig().getString(identifier));
     }
 
     public int getConfigInt(String identifier) {
         return plugin.getConfig().getInt(identifier);
+    }
+
+    public boolean getConfigBoolean(String identifier) {
+        return plugin.getConfig().getBoolean(identifier);
     }
 
     public ArrayList<String> getConfigStringList(String identifier) {
