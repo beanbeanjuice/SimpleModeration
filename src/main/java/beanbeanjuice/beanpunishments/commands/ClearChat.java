@@ -1,46 +1,69 @@
 package beanbeanjuice.beanpunishments.commands;
 
 import beanbeanjuice.beanpunishments.BeanPunishments;
+import beanbeanjuice.beanpunishments.utilities.CommandInterface;
 import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
+import beanbeanjuice.beanpunishments.utilities.usages.CommandUsage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class ClearChat implements CommandExecutor {
+import java.util.ArrayList;
 
-    private BeanPunishments plugin;
-
-    public ClearChat(BeanPunishments plugin) {
-        this.plugin = plugin;
-        plugin.getCommand("clearchat").setExecutor(this);
-    }
+public class ClearChat implements CommandInterface {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
+        if (!checkArgs(this, sender, args)) {
+            return false;
+        }
+
+        GeneralHelper helper = BeanPunishments.getHelper();
+
         if (!(sender instanceof Player)) {
             clearChat();
-            Bukkit.broadcastMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("chat-cleared")));
             return true;
         }
 
         Player player = (Player) sender;
 
-        if (player.hasPermission("beanpunishments.clearchat") || player.getName().equals("beanbeanjuice")) {
+        if (player.hasPermission(getPermissions().get(0)) || player.isOp()) {
             clearChat();
-            Bukkit.broadcastMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("chat-cleared")));
             return true;
         } else {
-            player.sendMessage(GeneralHelper.getPrefix() + GeneralHelper.translateColors(plugin.getConfig().getString("no-permission")));
+            player.sendMessage(helper.getPrefix() + helper.getConfigString("no-permission"));
             return false;
         }
     }
 
-    void clearChat() {
+    @Override
+    public String getName() {
+        return "clearchat";
+    }
+
+    @Override
+    public ArrayList<String> getPermissions() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("beanpunishments.clearchat"); // #0
+        return arrayList;
+    }
+
+    @Override
+    public CommandUsage getCommandUsage() {
+        return new CommandUsage();
+    }
+
+    @Override
+    public boolean checkArgs(CommandInterface command, CommandSender sender, String[] arguments) {
+        return BeanPunishments.getCommandHandler().checkArguments(command, sender, arguments);
+    }
+
+    private void clearChat() {
         for (int i = 0; i < 300; i++) {
             Bukkit.broadcastMessage("");
         }
+        Bukkit.broadcastMessage(BeanPunishments.getHelper().getPrefix() + BeanPunishments.getHelper().getConfigString("chat-cleared"));
     }
 }

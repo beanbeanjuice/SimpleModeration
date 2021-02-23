@@ -1,31 +1,61 @@
 package beanbeanjuice.beanpunishments.utilities;
 
 import beanbeanjuice.beanpunishments.BeanPunishments;
+import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
 
 public class GeneralHelper {
 
-    private static String prefix;
-    private static String nopermission;
+    private final String prefix;
+    private final String noPermission;
+    private final BeanPunishments plugin;
 
     public GeneralHelper(BeanPunishments plugin) {
+        this.plugin = plugin;
         prefix = translateColors(plugin.getConfig().getString("prefix")) + " ";
-        nopermission = translateColors(plugin.getConfig().getString("no-permission"));
+        noPermission = translateColors(plugin.getConfig().getString("no-permission"));
     }
 
-    public static String translateColors(String string) {
+    public String translateColors(String string) {
         return string.replaceAll("&", "§");
     }
 
-    public static String getConsolePrefix() {
+    public BeanPunishments getPlugin() {
+        return plugin;
+    }
+
+    public String getConsolePrefix() {
         return "[beanPunishments] ";
     }
 
-    public static String getPrefix() {
+    public String getPrefix() {
         return prefix;
     }
 
-    public static String getNoPermission() {
-        return nopermission;
+    public String getNoPermission() {
+        return noPermission;
+    }
+
+    public String getConfigString(String identifier) {
+        return translateColors(plugin.getConfig().getString(identifier));
+    }
+
+    public int getConfigInt(String identifier) {
+        return plugin.getConfig().getInt(identifier);
+    }
+
+    public ArrayList<String> getConfigStringList(String identifier) {
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        for (String string : plugin.getConfig().getStringList(identifier)) {
+            arrayList.add(translateColors(string));
+        }
+        return arrayList;
+    }
+
+    public boolean hasPermission(Player player, String permission) {
+        return player.hasPermission(permission);
     }
 
 }
