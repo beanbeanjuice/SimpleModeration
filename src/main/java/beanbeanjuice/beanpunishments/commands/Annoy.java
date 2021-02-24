@@ -17,7 +17,6 @@ public class Annoy implements CommandInterface {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        // Checks to see if something is run in the console
 
         if (!checkArgs(this, sender, args)) {
             return false;
@@ -26,6 +25,7 @@ public class Annoy implements CommandInterface {
         Player punishee = Bukkit.getPlayer(args[0]);
         GeneralHelper helper = BeanPunishments.getHelper();
 
+        // Checks to see if something is run in the console
         if (!(sender instanceof Player)) {
             if (helper.getConfigStringList("annoy-blacklisted-players").contains(punishee.getName())) {
                 sender.sendMessage("[beanPunishments] Sorry, you cannot annoy that player.");

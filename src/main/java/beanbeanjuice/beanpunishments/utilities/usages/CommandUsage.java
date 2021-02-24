@@ -46,7 +46,9 @@ public class CommandUsage {
 
         Usage usage = usages.get(index);
         switch (usage.getUsageType().getName()) {
-            case ("text"): {
+            case ("text"):
+
+            case ("other"): {
                 return true;
             }
 
@@ -75,10 +77,6 @@ public class CommandUsage {
                 }
 
                 return parseWorld(argument);
-            }
-
-            case ("other"): {
-                return true;
             }
 
             default: {

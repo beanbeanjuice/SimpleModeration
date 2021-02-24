@@ -169,4 +169,4 @@ too-many-arguments: '&cSorry, you have too many arguments.'
 not-enough-arguments: '&cSorry, you do not have enough arguments.'
 
 # IMPORTANT - DO NOT TOUCH
-config-version: 1
+config-version: 1.0.0

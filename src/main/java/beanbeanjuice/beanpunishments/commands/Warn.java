@@ -15,8 +15,6 @@ import java.util.UUID;
 
 public class Warn implements CommandInterface {
 
-    // TODO: Exception occurs when trying to retrieve a warn list from a player that doesn't exist.
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
@@ -24,7 +22,7 @@ public class Warn implements CommandInterface {
             return false;
         }
 
-        Player punishee = Bukkit.getPlayer(args[0]);
+        Player punishee = Bukkit.getPlayer(args[1]);
         GeneralHelper helper = BeanPunishments.getHelper();
         WarnManager warnManager = BeanPunishments.getWarnManager();
         String command = args[0].toLowerCase();
@@ -252,9 +250,9 @@ public class Warn implements CommandInterface {
     public CommandUsage getCommandUsage() {
         CommandUsage usage = new CommandUsage();
         usage.addUsage("list/remove/add", CommandUsage.USAGE_TYPE.TEXT, true);
-        usage.addUsage("player", CommandUsage.USAGE_TYPE.TEXT, false);
+        usage.addUsage("player", CommandUsage.USAGE_TYPE.PLAYER, false);
         for (int i = 0; i < 100; i++) {
-            usage.addUsage("extra arg", CommandUsage.USAGE_TYPE.TEXT, false);
+            usage.addUsage("extra args", CommandUsage.USAGE_TYPE.TEXT, false);
         }
         return usage;
     }

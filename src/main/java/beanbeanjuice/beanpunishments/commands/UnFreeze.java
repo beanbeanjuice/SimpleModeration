@@ -1,13 +1,11 @@
 package beanbeanjuice.beanpunishments.commands;
 
 import beanbeanjuice.beanpunishments.BeanPunishments;
-import beanbeanjuice.beanpunishments.managers.freeze.FreezeManager;
 import beanbeanjuice.beanpunishments.utilities.CommandInterface;
 import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
 import beanbeanjuice.beanpunishments.utilities.usages.CommandUsage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 

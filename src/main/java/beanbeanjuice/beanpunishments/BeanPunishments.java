@@ -25,7 +25,6 @@ public final class BeanPunishments extends JavaPlugin {
         chatManager = new ChatManager();
         warnManager = new WarnManager();
         getLogger().info("BeanPunishments.jar has been enabled...");
-        commandHandler.addCommand(new Punish());
         commandHandler.addCommand(new Annoy());
         commandHandler.addCommand(new ClearChat());
         commandHandler.addCommand(new FindWorld());
