@@ -1,2 +1,2 @@
-#beanPunishments
-##Punishment command for Spigot.
+# beanPunishments
+## A punishment command for spigot.
