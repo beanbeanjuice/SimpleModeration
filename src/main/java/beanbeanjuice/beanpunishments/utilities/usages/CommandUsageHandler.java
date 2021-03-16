@@ -6,26 +6,47 @@ import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 
+/**
+ * A {@link CommandUsageHandler} used for checking the {@link CommandUsage} for the {@link CommandInterface commands}.
+ */
 public class CommandUsageHandler {
 
     private final BeanPunishments plugin;
     private ArrayList<CommandInterface> commands;
 
+    /**
+     * Create a new {@link CommandUsageHandler} object.
+     * @param plugin The actual {@link org.bukkit.plugin.Plugin Plugin} used.
+     */
     public CommandUsageHandler(BeanPunishments plugin) {
         this.plugin = plugin;
         commands = new ArrayList<>();
     }
 
+    /**
+     * Add a new command to be handled.
+     * @param command The {@link CommandInterface command} to be added.
+     */
     public void addCommand(CommandInterface command) {
         commands.add(command);
     }
 
+    /**
+     * Makes sure that all commands are initialized and properly being handled.
+     */
     public void initializeCommands() {
         for (CommandInterface command : commands) {
             plugin.getCommand(command.getName()).setExecutor(command);
         }
     }
 
+    /**
+     * Checks the arguments for each command.
+     * @param command The {@link CommandInterface command} being send.
+     * @param sender The object that sent the command.
+     * @param arguments The arguments for that particular {@link CommandInterface command} entered.
+     * @return Whether or not the {@link CommandInterface command} can be sent.
+     */
     public boolean checkArguments(CommandInterface command, CommandSender sender, String[] arguments) {
         for (CommandInterface commandOriginal : commands) {
             if (command.equals(commandOriginal)) {

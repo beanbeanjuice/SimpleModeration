@@ -2,12 +2,18 @@ package beanbeanjuice.beanpunishments.managers.configs;
 
 import java.util.ArrayList;
 
+/**
+ * A handler used for handling the config.
+ */
 public class ConfigHandler {
 
     ArrayList<String> configs;
     private String config;
     private String messages;
 
+    /**
+     * Creates a new {@link ConfigHandler} object.
+     */
     public ConfigHandler() {
         config = ("config.yml");
         messages = ("messages.yml");
@@ -17,6 +23,10 @@ public class ConfigHandler {
         configs.add(messages);
     }
 
+    /**
+     * Makes sure configs are up to date.
+     * @param configName The name of that config.
+     */
     public void checkConfig(String configName) {
 
         for (String string : configs) {
