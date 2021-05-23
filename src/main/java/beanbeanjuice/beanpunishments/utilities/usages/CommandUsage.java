@@ -1,6 +1,7 @@
 package beanbeanjuice.beanpunishments.utilities.usages;
 
-import beanbeanjuice.beanpunishments.BeanPunishments;
+import beanbeanjuice.beanpunishments.utilities.usages.object.ArgumentAmount;
+import beanbeanjuice.beanpunishments.utilities.usages.object.UsageType;
 import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
@@ -28,10 +29,10 @@ public class CommandUsage {
     /**
      * Add a {@link Usage}.
      * @param argumentName The name of the argument to be used. It is arbitrary.
-     * @param usageType The {@link USAGE_TYPE} to be used.
+     * @param usageType The {@link UsageType} to be used.
      * @param required Whether or not this particular {@link Usage} is required.
      */
-    public void addUsage(String argumentName, USAGE_TYPE usageType, boolean required) {
+    public void addUsage(String argumentName, UsageType usageType, boolean required) {
         usages.add(new Usage(argumentName, usageType, required));
     }
 
@@ -45,9 +46,9 @@ public class CommandUsage {
     /**
      * Gets the total amount of required arguments.
      * @param arguments The arguments found in the {@link beanbeanjuice.beanpunishments.utilities.CommandInterface command}.
-     * @return The {@link ARGUMENT_AMOUNT} enum.
+     * @return The {@link ArgumentAmount} enum.
      */
-    public ARGUMENT_AMOUNT checkTotal(String[] arguments) {
+    public ArgumentAmount checkTotal(String[] arguments) {
         int totalRequired = 0;
 
         for (Usage value : usages) {
@@ -57,14 +58,14 @@ public class CommandUsage {
         }
 
         if (arguments.length > usages.size()) {
-            return ARGUMENT_AMOUNT.TOO_MANY;
+            return ArgumentAmount.TOO_MANY;
         }
 
         if (arguments.length < totalRequired) {
-            return ARGUMENT_AMOUNT.NOT_ENOUGH;
+            return ArgumentAmount.NOT_ENOUGH;
         }
 
-        return ARGUMENT_AMOUNT.CORRECT_AMOUNT;
+        return ArgumentAmount.CORRECT_AMOUNT;
     }
 
     /**
@@ -114,72 +115,6 @@ public class CommandUsage {
                 return false;
             }
 
-        }
-    }
-
-    /**
-     * The {@link ARGUMENT_AMOUNT} enum.
-     * Used for displaying what is wrong with that argument.
-     */
-    public enum ARGUMENT_AMOUNT {
-        TOO_MANY(BeanPunishments.getHelper().getConfigString("too-many-arguments")),
-        NOT_ENOUGH(BeanPunishments.getHelper().getConfigString("not-enough-arguments")),
-        CORRECT_AMOUNT("Correct Amount");
-
-        private final String message;
-
-        /**
-         * Create a new {@link ARGUMENT_AMOUNT} enum static class.
-         * @param message The message to be used.
-         */
-        ARGUMENT_AMOUNT(String message) {
-            this.message = message;
-        }
-
-        /**
-         * @return The message associated with the particular {@link ARGUMENT_AMOUNT}.
-         */
-        public String getMessage() {
-            return message;
-        }
-    }
-
-    /**
-     * The {@link USAGE_TYPE} enum.
-     * Used for displaying what type of argument it is.
-     */
-    public enum USAGE_TYPE {
-        TEXT("text", BeanPunishments.getHelper().getConfigString("incorrect-syntax-text")),
-        NUMBER("number", BeanPunishments.getHelper().getConfigString("incorrect-syntax-number")),
-        PLAYER("player", BeanPunishments.getHelper().getConfigString("incorrect-syntax-player")),
-        WORLD("world", BeanPunishments.getHelper().getConfigString("incorrect-syntax-world")),
-        OTHER("other", BeanPunishments.getHelper().getConfigString("incorrect-syntax-other"));
-
-        private final String name;
-        private final String message;
-
-        /**
-         * Create a new {@link USAGE_TYPE} enum static class.
-         * @param name The name of the type of argument.
-         * @param message The message to be used.
-         */
-        USAGE_TYPE(String name, String message) {
-            this.name = name;
-            this.message = message;
-        }
-
-        /**
-         * @return The message associated with the particular {@link USAGE_TYPE}.
-         */
-        public String getName() {
-            return name;
-        }
-
-        /**
-         * @return The message associated with the particular {@link USAGE_TYPE}.
-         */
-        public String getMessage() {
-            return message;
         }
     }
 
