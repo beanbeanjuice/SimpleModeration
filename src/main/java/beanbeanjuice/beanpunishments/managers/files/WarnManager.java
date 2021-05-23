@@ -14,7 +14,7 @@ import java.util.UUID;
  */
 public class WarnManager {
 
-    private final String filepath = ("plugins/beanPunishments/playerdata/Warn History");
+    private final String filepath = ("plugins/BeanPunishments/playerdata/Warn History");
 
     /**
      * Creates a new {@link WarnManager} object.

@@ -4,6 +4,7 @@ import beanbeanjuice.beanpunishments.BeanPunishments;
 import beanbeanjuice.beanpunishments.utilities.CommandInterface;
 import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
 import beanbeanjuice.beanpunishments.utilities.usages.CommandUsage;
+import beanbeanjuice.beanpunishments.utilities.usages.object.UsageType;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -72,7 +73,7 @@ public class Annoy implements CommandInterface {
     @Override
     public CommandUsage getCommandUsage() {
         CommandUsage commandUsage = new CommandUsage();
-        commandUsage.addUsage("player", CommandUsage.USAGE_TYPE.PLAYER, true);
+        commandUsage.addUsage("player", UsageType.PLAYER, true);
         return commandUsage;
     }
 

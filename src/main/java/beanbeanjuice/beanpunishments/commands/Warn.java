@@ -5,6 +5,7 @@ import beanbeanjuice.beanpunishments.managers.files.WarnManager;
 import beanbeanjuice.beanpunishments.utilities.CommandInterface;
 import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
 import beanbeanjuice.beanpunishments.utilities.usages.CommandUsage;
+import beanbeanjuice.beanpunishments.utilities.usages.object.UsageType;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -249,10 +250,10 @@ public class Warn implements CommandInterface {
     @Override
     public CommandUsage getCommandUsage() {
         CommandUsage usage = new CommandUsage();
-        usage.addUsage("list/remove/add", CommandUsage.USAGE_TYPE.TEXT, true);
-        usage.addUsage("player", CommandUsage.USAGE_TYPE.PLAYER, false);
+        usage.addUsage("list/remove/add", UsageType.TEXT, true);
+        usage.addUsage("player", UsageType.PLAYER, false);
         for (int i = 0; i < 100; i++) {
-            usage.addUsage("extra args", CommandUsage.USAGE_TYPE.TEXT, false);
+            usage.addUsage("extra args", UsageType.TEXT, false);
         }
         return usage;
     }

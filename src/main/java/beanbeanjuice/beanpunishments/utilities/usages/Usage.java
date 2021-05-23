@@ -1,21 +1,23 @@
 package beanbeanjuice.beanpunishments.utilities.usages;
 
+import beanbeanjuice.beanpunishments.utilities.usages.object.UsageType;
+
 /**
  * A {@link Usage} to be used in conjunction with the {@link CommandUsage} object.
  */
 public class Usage {
 
     private final String argumentName;
-    private final CommandUsage.USAGE_TYPE usageType;
+    private final UsageType usageType;
     private final boolean required;
 
     /**
      * Create a new {@link Usage} object.
      * @param argumentName The name of the argument.
-     * @param usageType The {@link beanbeanjuice.beanpunishments.utilities.usages.CommandUsage.USAGE_TYPE Usage Type} of the argument.
+     * @param usageType The {@link UsageType Usage Type} of the argument.
      * @param required Whether or not the argument is required or not.
      */
-    public Usage(String argumentName, CommandUsage.USAGE_TYPE usageType, boolean required) {
+    public Usage(String argumentName, UsageType usageType, boolean required) {
         this.argumentName = argumentName;
         this.usageType = usageType;
         this.required = required;
@@ -29,9 +31,9 @@ public class Usage {
     }
 
     /**
-     * @return The {@link beanbeanjuice.beanpunishments.utilities.usages.CommandUsage.USAGE_TYPE Usage Type} of the argument.
+     * @return The {@link UsageType Usage Type} of the argument.
      */
-    public CommandUsage.USAGE_TYPE getUsageType() {
+    public UsageType getUsageType() {
         return usageType;
     }
 

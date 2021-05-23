@@ -2,6 +2,7 @@ package beanbeanjuice.beanpunishments.utilities.usages;
 
 import beanbeanjuice.beanpunishments.BeanPunishments;
 import beanbeanjuice.beanpunishments.utilities.CommandInterface;
+import beanbeanjuice.beanpunishments.utilities.usages.object.ArgumentAmount;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class CommandUsageHandler {
         for (CommandInterface commandOriginal : commands) {
             if (command.equals(commandOriginal)) {
 
-                CommandUsage.ARGUMENT_AMOUNT argumentAmount = commandOriginal.getCommandUsage().checkTotal(arguments);
+                ArgumentAmount argumentAmount = commandOriginal.getCommandUsage().checkTotal(arguments);
 
                 switch (argumentAmount) {
                     case CORRECT_AMOUNT: {
