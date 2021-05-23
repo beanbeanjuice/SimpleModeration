@@ -4,6 +4,7 @@ import beanbeanjuice.beanpunishments.BeanPunishments;
 import beanbeanjuice.beanpunishments.utilities.CommandInterface;
 import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
 import beanbeanjuice.beanpunishments.utilities.usages.CommandUsage;
+import beanbeanjuice.beanpunishments.utilities.usages.object.UsageType;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -143,7 +144,7 @@ public class Freeze implements CommandInterface {
     @Override
     public CommandUsage getCommandUsage() {
         CommandUsage usage = new CommandUsage();
-        usage.addUsage("player name/all", CommandUsage.USAGE_TYPE.TEXT, true);
+        usage.addUsage("player name/all", UsageType.TEXT, true);
         return usage;
     }
 

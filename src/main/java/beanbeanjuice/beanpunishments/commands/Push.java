@@ -4,6 +4,7 @@ import beanbeanjuice.beanpunishments.BeanPunishments;
 import beanbeanjuice.beanpunishments.utilities.CommandInterface;
 import beanbeanjuice.beanpunishments.utilities.GeneralHelper;
 import beanbeanjuice.beanpunishments.utilities.usages.CommandUsage;
+import beanbeanjuice.beanpunishments.utilities.usages.object.UsageType;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -67,8 +68,8 @@ public class Push implements CommandInterface {
     @Override
     public CommandUsage getCommandUsage() {
         CommandUsage usage = new CommandUsage();
-        usage.addUsage("player", CommandUsage.USAGE_TYPE.PLAYER, true);
-        usage.addUsage("push amount", CommandUsage.USAGE_TYPE.NUMBER, true);
+        usage.addUsage("player", UsageType.PLAYER, true);
+        usage.addUsage("push amount", UsageType.NUMBER, true);
         return usage;
     }
 
