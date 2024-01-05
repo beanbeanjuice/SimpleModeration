@@ -1,4 +1,5 @@
 ---
+
 name: Bug Report
 about: Create a bug report telling us exactly what is wrong.
 title: "[BUG] **DESCRIBE YOUR ISSUE AS SHORT AS POSSIBLE IN THIS BOX**"
@@ -7,25 +8,36 @@ assignees: beanbeanjuice
 
 ---
 
-**Describe the bug**
+## Bug Description
 A clear and concise description of what the bug is.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+---
 
-**Expected behavior**
+## Steps to Reproduce the Bug
+1. Go to '...'
+1. Click on '....'
+1. Scroll down to '....'
+1. See error
+
+---
+
+## Expected Behaviour
 A clear and concise description of what you expected to happen.
 
-**Screenshots/Videos**
+---
+
+## Screenshots/Videos
 If applicable, add screenshots or videos to help explain your problem. Links are preferred.
 
-**Minecraft Version (please complete the following information):**
- - Version: [e.g. 1.13, 1.15]
- - Type: [e.g. Vanilla, Spigot, Paperspigot, Bukkit]
+---
 
-**Additional context**
+## Additional Context
+
 Add any other context about the problem here.
+
+---
+
+## Checklist
+
+- [ ] I have checked for similar issues.
+- [ ] This is a bug report, not a feature request, improvement request, or security vulnerability report.
