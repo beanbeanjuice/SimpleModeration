@@ -1,0 +1,10 @@
+name: beanPunishments
+version: '${project.version}'
+main: com.beanbeanjuice.beanpunishments.BeanPunishments
+api-version: '1.20'
+prefix: beanPunishments
+load: STARTUP
+softdepend: [PlaceholderAPI]
+authors: [beanbeanjuice]
+description: A moderation plugin!
+website: https://www.github.com/beanbeanjuice/beanPunishments
