@@ -7,12 +7,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class Helper {
 
-    private static String prefix;
     private static BeanPunishments plugin;
 
     public static void initialize(BeanPunishments beanPunishments) {
         plugin = beanPunishments;
-        prefix = translateColors(plugin.getConfig().getString("prefix"));
     }
 
     @NotNull
@@ -31,16 +29,25 @@ public class Helper {
         return translateColors(plugin.getConfig().getString(string));
     }
 
+    @NotNull
     public static String getPrefix() {
-        return prefix;
+        return getParsedConfigString("prefix");
     }
 
     public static void sendMessage(@NotNull CommandSender sender, @NotNull String message) {
-        sender.sendMessage(prefix + translateColors(message));
+        sender.sendMessage(getPrefix() + translateColors(message));
+    }
+
+    public static void sendMessageConfig(@NotNull CommandSender sender, @NotNull String configString) {
+        sendMessage(sender, getParsedConfigString(configString));
+    }
+
+    public static void sendNoPermission(@NotNull CommandSender sender) {
+        sendMessage(sender, Helper.getParsedConfigString("no-permission"));
     }
 
     public static void broadcastMessage(@NotNull String message) {
-        Bukkit.broadcastMessage(prefix + translateColors(message));
+        Bukkit.broadcastMessage(getPrefix() + translateColors(message));
     }
 
 }

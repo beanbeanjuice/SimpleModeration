@@ -10,12 +10,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class PushOtherPlayerSubCommand implements ISubCommand {
+public class PushPlayerSubCommand implements ISubCommand {
 
     @Override
     public boolean handle(@NotNull CommandSender sender, @NotNull String[] args) {
         if (args.length != 2) {
-            Helper.sendMessage(sender, Helper.getParsedConfigString("push-incorrect-syntax"));
+            Helper.sendMessageConfig(sender, "push-incorrect-syntax");
             return false;
         }
 
@@ -25,7 +25,7 @@ public class PushOtherPlayerSubCommand implements ISubCommand {
         try {
             strength = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
-            Helper.sendMessage(sender, Helper.getParsedConfigString("push-incorrect-syntax"));
+            Helper.sendMessageConfig(sender, "push-incorrect-syntax");
             return false;
         }
 
@@ -48,14 +48,14 @@ public class PushOtherPlayerSubCommand implements ISubCommand {
 
         Vector direction = (sender instanceof Player) ? ((Player) sender).getLocation().getDirection() : player.getLocation().getDirection();
         player.setVelocity(direction.multiply(strength));
-        Helper.sendMessage(sender, Helper.getParsedConfigString("successful-push"));
+        Helper.sendMessage(sender, Helper.getParsedConfigString("successful-push").replace("%player%", player.getName()));
 
         return true;
     }
 
     @Override
     public String getPermission() {
-        return "beanPunishments.push";
+        return "beanmoderation.push";
     }
 
 }

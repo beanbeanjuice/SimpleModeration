@@ -15,20 +15,25 @@ import org.jetbrains.annotations.NotNull;
  */
 public class ClearChatSubCommand implements ISubCommand {
 
+    private final int CLEAR_COUNT = 100;
+
     @Override
     public boolean handle(@NotNull CommandSender sender, @NotNull String[] args) {
-        Bukkit.getOnlinePlayers().forEach(this::clearIndividualPlayerChat);
-        Helper.broadcastMessage(Helper.getParsedConfigString("chat-cleared"));
+        // On a separate thread to not cause hang ups.
+        Bukkit.getScheduler().runTaskAsynchronously(Helper.getPlugin(), () -> {
+            Bukkit.getOnlinePlayers().forEach(this::clearIndividualPlayerChat);  // Bukkit#broadcastMessage spams console.
+            Helper.broadcastMessage(Helper.getParsedConfigString("chat-cleared"));
+        });
         return true;
     }
 
     private void clearIndividualPlayerChat(Player player) {
-        for (int i = 0; i < 100; i++) player.sendMessage("");
+        for (int i = 0; i < CLEAR_COUNT; i++) player.sendMessage("");
     }
 
     @Override
     public String getPermission() {
-        return "beanPunishments.clearchat";
+        return "beanmoderation.clearchat";
     }
 
 }

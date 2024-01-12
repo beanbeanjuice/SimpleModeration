@@ -7,5 +7,8 @@ public interface ISubCommand {
 
     boolean handle(@NotNull CommandSender sender, @NotNull String[] args);
     String getPermission();
+    default boolean userCanRun(CommandSender sender) {
+        return sender.isOp() || sender.hasPermission(getPermission());
+    }
 
 }

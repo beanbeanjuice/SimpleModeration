@@ -20,7 +20,7 @@ push-above-maximum: '&cSorry, the maximum push strength is &a%max%&c.'
 successful-push: '&a%player% &3has been successfully pushed!'
 
 # Permissions
-# beanpunishments.push
+# beanmoderation.push
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
@@ -30,7 +30,7 @@ successful-push: '&a%player% &3has been successfully pushed!'
 successful-reload: '&aThe plugin has been successfully reloaded!'
 
 # Permissions
-# beanpunishments.reload
+# beanmoderation.reload
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
@@ -40,7 +40,7 @@ successful-reload: '&aThe plugin has been successfully reloaded!'
 chat-cleared: '&3The chat has been successfully cleared!'
 
 # Permissions
-# beanpunishments.clearchat
+# beanmoderation.clearchat
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
@@ -71,10 +71,10 @@ freeze-ban-message: '&cLogged out while frozen. Appeal on discord at &b%discord%
 freeze-ban-broadcast-message: '&a%player% has left the game while frozen and has been permanently banned.'
 
 # Permissions
-# beanpunishments.freeze
-# beanpunishments.freeze.all
-# beanpunishments.unfreeze
-# beanpunishments.unfreeze.all
+# beanmoderation.freeze
+# beanmoderation.freeze.all
+# beanmoderation.unfreeze
+# beanmoderation.unfreeze.all
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
@@ -108,10 +108,10 @@ warn-warn-timestamp: '&3Timestamp: &d%timestamp%'
 warn-separator: '&e============================'
 
 # Permissions
-# beanpunishments.warn.add
-# beanpunishments.warn.remove
-# beanpunishments.warn.list.others
-# beanpunishments.warn.list.self
+# beanmoderation.warn.add
+# beanmoderation.warn.remove
+# beanmoderation.warn.list.others
+# beanmoderation.warn.list.self
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
@@ -124,8 +124,8 @@ mutechat-broadcast-unmuted: '&aThe chat has been unmuted.'
 mutechat-player-muted: '&cYou cannot speak right now. The chat has been muted.'
 
 # Permissions
-# beanpunishments.mutechat
-# beanpunishments.mutechat.bypass
+# beanmoderation.mutechat
+# beanmoderation.mutechat.bypass
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
@@ -141,7 +141,7 @@ annoy-not-allowed: '&cSorry, you are not allowed to annoy &a%player%&c.'
 annoy-successful: '&aYou have successfully annoyed &d%player%&a.'
 
 #Permissions
-# beanpunishments.annoy
+# beanmoderation.annoy
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
@@ -152,7 +152,7 @@ find-world: '&a%player%&3, is in &b%world%&3.'
 findworld-incorrect-syntax: '&cSorry, that syntax is incorrect. Please use &a/find (player)&c.'
 
 # Permissions
-# beanpunishments.findworld
+# beanmoderation.findworld
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------

@@ -1,6 +1,8 @@
 package com.beanbeanjuice.beanpunishments;
 
+import com.beanbeanjuice.beanpunishments.command.annoy.AnnoyCommand;
 import com.beanbeanjuice.beanpunishments.command.clearchat.ClearChatCommand;
+import com.beanbeanjuice.beanpunishments.command.find.FindCommand;
 import com.beanbeanjuice.beanpunishments.command.push.PushCommand;
 import com.beanbeanjuice.beanpunishments.utility.Helper;
 import com.beanbeanjuice.beanpunishments.utility.command.CommandHandler;
@@ -23,6 +25,8 @@ public final class BeanPunishments extends JavaPlugin {
 
         handler.initializeCommand("push", new PushCommand());
         handler.initializeCommand("clearchat", new ClearChatCommand());
+        handler.initializeCommand("find", new FindCommand());
+        handler.initializeCommand("annoy", new AnnoyCommand());
     }
 
     @Override

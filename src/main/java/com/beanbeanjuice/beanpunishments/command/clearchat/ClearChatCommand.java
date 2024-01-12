@@ -18,8 +18,8 @@ public class ClearChatCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         ISubCommand subCommand = new ClearChatSubCommand();
-        if (!sender.hasPermission(subCommand.getPermission()) || sender.isOp()) {
-            Helper.sendMessage(sender, Helper.getParsedConfigString("no-permission"));
+        if (!subCommand.userCanRun(sender)) {
+            Helper.sendNoPermission(sender);
             return false;
         }
         return subCommand.handle(sender, args);
