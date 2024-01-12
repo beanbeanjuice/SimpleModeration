@@ -1,14 +1,14 @@
-package com.beanbeanjuice.beanpunishments;
+package com.beanbeanjuice.beanmoderation;
 
-import com.beanbeanjuice.beanpunishments.command.annoy.AnnoyCommand;
-import com.beanbeanjuice.beanpunishments.command.clearchat.ClearChatCommand;
-import com.beanbeanjuice.beanpunishments.command.find.FindCommand;
-import com.beanbeanjuice.beanpunishments.command.push.PushCommand;
-import com.beanbeanjuice.beanpunishments.utility.Helper;
-import com.beanbeanjuice.beanpunishments.utility.command.CommandHandler;
+import com.beanbeanjuice.beanmoderation.command.annoy.AnnoyCommand;
+import com.beanbeanjuice.beanmoderation.command.clearchat.ClearChatCommand;
+import com.beanbeanjuice.beanmoderation.command.find.FindCommand;
+import com.beanbeanjuice.beanmoderation.command.push.PushCommand;
+import com.beanbeanjuice.beanmoderation.utility.Helper;
+import com.beanbeanjuice.beanmoderation.utility.command.CommandHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class BeanPunishments extends JavaPlugin {
+public final class BeanModeration extends JavaPlugin {
 
     @Override
     public void onEnable() {

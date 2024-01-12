@@ -1,16 +1,16 @@
-package com.beanbeanjuice.beanpunishments.utility;
+package com.beanbeanjuice.beanmoderation.utility;
 
-import com.beanbeanjuice.beanpunishments.BeanPunishments;
+import com.beanbeanjuice.beanmoderation.BeanModeration;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
 public class Helper {
 
-    private static BeanPunishments plugin;
+    private static BeanModeration plugin;
 
-    public static void initialize(BeanPunishments beanPunishments) {
-        plugin = beanPunishments;
+    public static void initialize(BeanModeration beanModeration) {
+        plugin = beanModeration;
     }
 
     @NotNull
@@ -20,7 +20,7 @@ public class Helper {
 
 
     @NotNull
-    public static BeanPunishments getPlugin() {
+    public static BeanModeration getPlugin() {
         return plugin;
     }
 

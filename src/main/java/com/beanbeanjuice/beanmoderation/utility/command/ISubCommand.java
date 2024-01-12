@@ -1,4 +1,4 @@
-package com.beanbeanjuice.beanpunishments.utility.command;
+package com.beanbeanjuice.beanmoderation.utility.command;
 
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;

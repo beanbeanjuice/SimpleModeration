@@ -1,7 +1,7 @@
-package com.beanbeanjuice.beanpunishments.command.clearchat;
+package com.beanbeanjuice.beanmoderation.command.clearchat;
 
-import com.beanbeanjuice.beanpunishments.utility.Helper;
-import com.beanbeanjuice.beanpunishments.utility.command.ISubCommand;
+import com.beanbeanjuice.beanmoderation.utility.Helper;
+import com.beanbeanjuice.beanmoderation.utility.command.ISubCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

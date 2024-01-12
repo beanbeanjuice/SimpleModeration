@@ -1,7 +1,7 @@
-package com.beanbeanjuice.beanpunishments.command.annoy;
+package com.beanbeanjuice.beanmoderation.command.annoy;
 
-import com.beanbeanjuice.beanpunishments.utility.Helper;
-import com.beanbeanjuice.beanpunishments.utility.command.ISubCommand;
+import com.beanbeanjuice.beanmoderation.utility.Helper;
+import com.beanbeanjuice.beanmoderation.utility.command.ISubCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

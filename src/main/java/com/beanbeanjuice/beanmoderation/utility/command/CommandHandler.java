@@ -1,14 +1,14 @@
-package com.beanbeanjuice.beanpunishments.utility.command;
+package com.beanbeanjuice.beanmoderation.utility.command;
 
-import com.beanbeanjuice.beanpunishments.BeanPunishments;
+import com.beanbeanjuice.beanmoderation.BeanModeration;
 import org.bukkit.command.CommandExecutor;
 import org.jetbrains.annotations.NotNull;
 
 public class CommandHandler {
 
-    private final BeanPunishments plugin;
+    private final BeanModeration plugin;
 
-    public CommandHandler(@NotNull BeanPunishments plugin) {
+    public CommandHandler(@NotNull BeanModeration plugin) {
         this.plugin = plugin;
     }
 
