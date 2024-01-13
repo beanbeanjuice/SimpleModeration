@@ -19,9 +19,6 @@ commands:
   freeze:
     aliases: []
     description: Freeze a player.
-  unfreeze:
-    aliases: []
-    description: Unfreeze a player.
   warn:
     aliases: []
     description: Warns a player.
@@ -35,7 +32,7 @@ commands:
     aliases: []
     description: Shows a player's previous warns.
   mute-chat:
-    aliases: []
+    aliases: [mutechat]
     description: Mutes chat globally.
   annoy:
     aliases: []

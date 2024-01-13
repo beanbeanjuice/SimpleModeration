@@ -17,10 +17,16 @@ public class FindCommand implements ICommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (args.length == 0) {
+            Helper.sendMessageConfig(sender, "findworld-incorrect-syntax");
+            return false;
+        }
+
         if (!subCommands.get("").userCanRun(sender)) {
             Helper.sendNoPermission(sender);
             return false;
         }
+
         return subCommands.get("").handle(sender, args);
     }
 

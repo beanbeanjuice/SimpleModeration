@@ -19,7 +19,7 @@ public class ChatManager implements Listener {
         if (!isMuted) return;
 
         Player player = event.getPlayer();
-        if (!player.hasPermission("beanmoderation.mutechat.bypass")) {
+        if (!player.hasPermission("beanmoderation.mutechat.bypass") && !player.isOp()) {
             event.setCancelled(true);
             Helper.sendMessageConfig(player, "mutechat-player-muted");
         }

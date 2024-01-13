@@ -15,11 +15,6 @@ public class AnnoyPlayerSubCommand implements ISubCommand {
 
     @Override
     public boolean handle(@NotNull CommandSender sender, @NotNull String[] args) {
-        if (args.length == 0) {
-            Helper.sendMessageConfig(sender, "annoy-incorrect-syntax");
-            return false;
-        }
-
         List<String> blacklistedNames = Helper.getPlugin().getConfig().getStringList("annoy-blacklisted-players");
         Player player = Bukkit.getPlayer(args[0]);
 

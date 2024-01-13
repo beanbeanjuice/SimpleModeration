@@ -39,6 +39,7 @@ chat-clear-amount: 100
 
 # Messages
 chat-cleared: '&3The chat has been successfully cleared!'
+clear-chat-incorrect-syntax: '&cIncorrect syntax. Use /cc.'
 
 # Permissions
 # beanmoderation.clearchat
@@ -46,10 +47,6 @@ chat-cleared: '&3The chat has been successfully cleared!'
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
 # Configuration for the /freeze (player) command.
-
-# Players that cannot be frozen. Case-Sensitive.
-freeze-blacklisted-players:
-  - ExampleName
 
 # Bans the frozen player when they leave the game.
 freeze-ban-on-leave: true
@@ -60,22 +57,19 @@ freeze-secondary-message: '&cDo not log out or you will be banned.'
 
 # Messages
 freeze-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/freeze (player)&c.'
-freeze-unfreeze-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/unfreeze (player)&c.'
+unfreeze-incorrect-syntax: '&cSorry, the syntax is incorrect. Please use &a/unfreeze (player)&c.'
 freeze-not-allowed: '&cSorry, you are not allowed to freeze &a%player%&c.'
 freeze-frozen: '&a%player% &3has been successfully frozen.'
 freeze-unfrozen: '&a%player% &3has been successfully unfrozen.'
-freeze-already-frozen: '&a%player% &3is already frozen. Please use &a/unfreeze (player) &3to unfreeze them.'
-freeze-already-unfrozen: '&a%player% &3is already unfrozen. Please use &a/freeze (player) &3to freeze them.'
-freeze-freeze-all: '&a%player% &3has frozen &c&l&oALL &r&3players.'
-freeze-unfreeze-all: '&a%player% &3has unfrozen &c&l&oALL &r&3players.'
+freeze-all: '&a%player% &3has frozen &c&l&oALL &r&3players.'
+unfreeze-all: '&a%player% &3has unfrozen &c&l&oALL &r&3players.'
 freeze-ban-message: '&cLogged out while frozen. Appeal on discord at &b%discord%&c.'
 freeze-ban-broadcast-message: '&a%player% has left the game while frozen and has been permanently banned.'
 
 # Permissions
 # beanmoderation.freeze
 # beanmoderation.freeze.all
-# beanmoderation.unfreeze
-# beanmoderation.unfreeze.all
+# beanmoderation.freeze.bypass - Bypass being frozen.
 # ---------------------------------------------
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------

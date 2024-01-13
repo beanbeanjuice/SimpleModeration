@@ -1,4 +1,4 @@
-package com.beanbeanjuice.beanmoderation.command.annoy;
+package com.beanbeanjuice.beanmoderation.command.freeze;
 
 import com.beanbeanjuice.beanmoderation.utility.Helper;
 import com.beanbeanjuice.beanmoderation.utility.command.ICommand;
@@ -9,39 +9,34 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-/**
- * A class that deals with the permission logic for the annoy command.
- *
- * @since 3.0.0
- * @author beanbeanjuice
- */
-public class AnnoyCommand implements ICommand {
+public class FreezeCommand implements ICommand {
 
     private final HashMap<String, ISubCommand> subCommands = new HashMap<>() {{
-        put("", new AnnoyPlayerSubCommand());
+        put("", new FreezeIndividualPlayerSubCommand());
+        put("all", new FreezeAllPlayersSubCommand());
     }};
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (args.length == 0) {
-            Helper.sendMessageConfig(sender, "annoy-incorrect-syntax");
+        if (args.length != 1) {
+            Helper.sendMessageConfig(sender, "freeze-incorrect-syntax");
             return false;
         }
 
-        if (!subCommands.get("").userCanRun(sender)) {
-            Helper.sendNoPermission(sender);
-            return false;
-        }
-        return subCommands.get("").handle(sender, args);
+        ISubCommand subCommand = subCommands.get(args[0]);
+
+        if (subCommand == null) return subCommands.get("").handle(sender, args);
+        return subCommand.handle(sender, args);
     }
 
     @Override
     public String getName() {
-        return "annoy";
+        return "freeze";
     }
 
     @Override
     public HashMap<String, ISubCommand> getSubCommands() {
         return subCommands;
     }
+
 }
