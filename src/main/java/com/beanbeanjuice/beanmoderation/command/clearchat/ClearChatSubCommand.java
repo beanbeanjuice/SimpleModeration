@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+
 /**
  * Clears the chat.
  *
@@ -14,8 +16,6 @@ import org.jetbrains.annotations.NotNull;
  * @author beanbeanjuice
  */
 public class ClearChatSubCommand implements ISubCommand {
-
-    private final int CLEAR_COUNT = 100;
 
     @Override
     public boolean handle(@NotNull CommandSender sender, @NotNull String[] args) {
@@ -28,7 +28,7 @@ public class ClearChatSubCommand implements ISubCommand {
     }
 
     private void clearIndividualPlayerChat(Player player) {
-        for (int i = 0; i < CLEAR_COUNT; i++) player.sendMessage("");
+        for (int i = 0; i < Helper.getPlugin().getConfig().getInt("chat-clear-amount"); i++) player.sendMessage("");
     }
 
     @Override

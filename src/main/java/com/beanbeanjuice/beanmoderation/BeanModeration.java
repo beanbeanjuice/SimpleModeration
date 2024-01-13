@@ -3,9 +3,12 @@ package com.beanbeanjuice.beanmoderation;
 import com.beanbeanjuice.beanmoderation.command.annoy.AnnoyCommand;
 import com.beanbeanjuice.beanmoderation.command.clearchat.ClearChatCommand;
 import com.beanbeanjuice.beanmoderation.command.find.FindCommand;
+import com.beanbeanjuice.beanmoderation.command.mutechat.MuteChatCommand;
 import com.beanbeanjuice.beanmoderation.command.push.PushCommand;
 import com.beanbeanjuice.beanmoderation.utility.Helper;
+import com.beanbeanjuice.beanmoderation.utility.chat.ChatManager;
 import com.beanbeanjuice.beanmoderation.utility.command.CommandHandler;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class BeanModeration extends JavaPlugin {
@@ -15,6 +18,8 @@ public final class BeanModeration extends JavaPlugin {
         saveDefaultConfig();
 
         Helper.initialize(this);
+        getServer().getPluginManager().registerEvents(new ChatManager(), this);
+
         initializeCommands();
 
         getLogger().info("The plugin has been enabled.");
@@ -23,10 +28,13 @@ public final class BeanModeration extends JavaPlugin {
     private void initializeCommands() {
         CommandHandler handler = new CommandHandler(this);
 
-        handler.initializeCommand("push", new PushCommand());
-        handler.initializeCommand("clearchat", new ClearChatCommand());
-        handler.initializeCommand("find", new FindCommand());
-        handler.initializeCommand("annoy", new AnnoyCommand());
+        handler.initializeCommands(
+                new PushCommand(),
+                new ClearChatCommand(),
+                new FindCommand(),
+                new AnnoyCommand(),
+                new MuteChatCommand()
+        );
     }
 
     @Override

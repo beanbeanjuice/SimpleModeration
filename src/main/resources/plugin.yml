@@ -13,7 +13,7 @@ commands:
   push:
     aliases: []
     description: Launches a specified player with a specified amount of force.
-  clearchat:
+  clear-chat:
     aliases: [cc]
     description: Clears the chat.
   freeze:
@@ -34,7 +34,7 @@ commands:
   warn list:
     aliases: []
     description: Shows a player's previous warns.
-  mutechat:
+  mute-chat:
     aliases: []
     description: Mutes chat globally.
   annoy:

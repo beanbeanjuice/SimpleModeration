@@ -35,6 +35,7 @@ successful-reload: '&aThe plugin has been successfully reloaded!'
 # |||||||||||||||||||||||||||||||||||||||||||||
 # ---------------------------------------------
 # Configuration for the /clearchat command.
+chat-clear-amount: 100
 
 # Messages
 chat-cleared: '&3The chat has been successfully cleared!'

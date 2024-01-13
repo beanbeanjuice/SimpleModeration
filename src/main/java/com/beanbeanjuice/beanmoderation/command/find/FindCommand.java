@@ -1,22 +1,37 @@
 package com.beanbeanjuice.beanmoderation.command.find;
 
 import com.beanbeanjuice.beanmoderation.utility.Helper;
+import com.beanbeanjuice.beanmoderation.utility.command.ICommand;
 import com.beanbeanjuice.beanmoderation.utility.command.ISubCommand;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-public class FindCommand implements CommandExecutor {
+import java.util.HashMap;
+
+public class FindCommand implements ICommand {
+
+    private final HashMap<String, ISubCommand> subCommands = new HashMap<>() {{
+        put("", new FindPlayerSubCommand());
+    }};
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        ISubCommand findPlayerSubCommand = new FindPlayerSubCommand();
-        if (!findPlayerSubCommand.userCanRun(sender)) {
+        if (!subCommands.get("").userCanRun(sender)) {
             Helper.sendNoPermission(sender);
             return false;
         }
-        return findPlayerSubCommand.handle(sender, args);
+        return subCommands.get("").handle(sender, args);
+    }
+
+    @Override
+    public String getName() {
+        return "find";
+    }
+
+    @Override
+    public HashMap<String, ISubCommand> getSubCommands() {
+        return subCommands;
     }
 
 }
