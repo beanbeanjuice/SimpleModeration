@@ -6,6 +6,7 @@ import com.beanbeanjuice.beanmoderation.command.find.FindCommand;
 import com.beanbeanjuice.beanmoderation.command.freeze.FreezeCommand;
 import com.beanbeanjuice.beanmoderation.command.mutechat.MuteChatCommand;
 import com.beanbeanjuice.beanmoderation.command.push.PushCommand;
+import com.beanbeanjuice.beanmoderation.command.warn.WarnCommand;
 import com.beanbeanjuice.beanmoderation.utility.Helper;
 import com.beanbeanjuice.beanmoderation.utility.chat.ChatManager;
 import com.beanbeanjuice.beanmoderation.utility.chat.MovementManager;
@@ -36,7 +37,8 @@ public final class BeanModeration extends JavaPlugin {
                 new FindCommand(),
                 new AnnoyCommand(),
                 new MuteChatCommand(),
-                new FreezeCommand()
+                new FreezeCommand(),
+                new WarnCommand()
         );
     }
 
