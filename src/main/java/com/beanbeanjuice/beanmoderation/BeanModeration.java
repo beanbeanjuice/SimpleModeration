@@ -37,8 +37,8 @@ public final class BeanModeration extends JavaPlugin {
                 new FindCommand(),
                 new AnnoyCommand(),
                 new MuteChatCommand(),
-                new FreezeCommand(),
-                new WarnCommand()
+                new FreezeCommand()
+//                new WarnCommand()
         );
     }
 
