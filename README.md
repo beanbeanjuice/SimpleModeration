@@ -1,8 +1,11 @@
-# beanPunishments
-### Background
-Hello! My name is William or **beanbeanjuice**. I hope you're doing okay! Welcome to my first plugin... **beanPunishments**.
+# Simple Moderation
 
+Run the command below to build the file. Once done, it will be located [here](./libs).
+```
+./gradlew shadowJar
+```
 
-# Uses
-
-> **Note:** This page is still being edited.
+If you want to delete the build, run this.
+```
+./gradlew clean
+```

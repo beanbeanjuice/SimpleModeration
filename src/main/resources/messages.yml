@@ -1,0 +1,48 @@
+ping:
+  placeholder-api-found: "&7Hello, &a%player_name%&7!"
+  placeholder-api-not-found: "&7Hello, &c%player_name%&7!"
+
+freeze:
+  success:
+    single: "&b%player_name% &7has been &cfrozen&7."
+    all: "&bAll &7players have been &cfrozen&7."
+  fail:
+    offline: "&cUnable to freeze an offline player."
+    bypass: "&b%player_name% &ccannot be frozen."
+  frozen:
+    title: "&cYou Are Frozen"
+    subtitle: "&b%player_name%&c, &c&lDO NOT &r&cdisconnect."
+    command-use: "&cYou cannot run commands while frozen."
+  attack:
+    sent: "&cYou cannot attack others while frozen."
+    received: "&cYou cannot attack &b%player_name% &cwhile they are frozen."
+  ban:
+    ban-on-disconnect: true
+    message: "&cYou logged out while frozen. Appeal on <rainbow>https://www.example.com&c."
+  usage: "&c/freeze (player/ALL)"
+  no-permission:
+    all: "&cYou don't have permission to freeze all players."
+
+unfreeze:
+  success:
+    single: "&b%player_name% &7has been &aunfrozen&7."
+    all: "&bAll &7players have been &aunfrozen&7."
+  fail:
+    offline: "&cUnable to unfreeze an offline player."
+  usage: "&c/unfreeze (player/ALL)"
+  no-permission:
+    all: "&cYou don't have permission to unfreeze all players."
+
+mute:
+  success:
+    without-reason:
+      no-length: "&b%player_name% &chas been muted."
+      with-length: "&b%player_name% &chas been muted for &9%length%&c."
+    with-reason:
+      no-length: "&b%player_name% &chas been muted: &e%reason%."
+      with-length: "&b%player_name% &chas been muted for &9%length%&c: &e%reason%."
+  muted:
+    attempt: "&cYou cannot speak while muted."
+
+# DO NOT TOUCH THIS
+file-version: 1
